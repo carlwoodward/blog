@@ -5,7 +5,7 @@ layout: post
 
 There are a bunch of examples out there for doing authentication. If you are looking for the ember side of authentication check out: http://jsbin.com/eQOZoGe/1/edit. The server code is the same as any other implementation except you will be using REST JSON API rather than rendering pages.
 
-One thing that can be tricky is that most of the examples use a local storage variable to check whether the user is logged in. The problem is that the local storage variables last forever but the server side session lasts for a finite amount of time so when the user trys to perform an action, they are logged in on the client side but logged out on the client side.
+One thing that can be tricky is that most of the examples use a local storage variable to check whether the user is logged in. The problem is that the local storage variables last forever but the server side session lasts for a finite amount of time so when the user trys to perform an action, they are logged in on the client side but logged out on the server side.
 
 ## Authenticated Controller
 
