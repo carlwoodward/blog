@@ -1,0 +1,94 @@
+---
+title: So, Go (Golang), Hey
+layout: post
+---
+
+The code that influenced this post is here: https://github.com/carlwoodward/moodtracker/tree/issue/1-sign-up/appgo/src/moodtracker
+
+## Speed
+
+Go is fast. Super quick. Check it out:
+
+Clojure
+
+    APP_ENV=test lein test :only test/appclj/test/records/user_records.clj  11.02s user 0.47s system 205% cpu 5.583 total
+
+Go
+
+    go test  0.70s user 0.10s system 97% cpu 0.827 total
+
+These tests are doing the same thing code wise but the startup time of the clojure code is much greater.
+
+## What's it great at
+
+Go is awesome for systems programming. Anywhere where C is an option, Go will provide a simpler implementation.
+
+At this stage it's hard to predict if it's good for web development. It is a mix of C and C++ with first class functions (C++11 added first class functions that even look a bit similar).
+
+## It's kinda functional, kinda OO
+
+Go has first class functions but relies very heavily mutating data. The definition of functional programming changes daily (from what is posted on HN) but going to an immutable model seems to be a trait of functional programming that a lot of people like so I think it's more accurate to say that _Go is functionalish_.
+
+It has function pointers (effectively) so functions can be bound to instances of a types. Programmers can choose to structure their code in a functional fashion or they can use object oriented principles. This is great but if someone wants to write Go in a functional style, they will still have to interact with libraries that are written in an object oriented style. This issue is very common among languages that don't pick a chosen path.
+
+## The package management is constraining
+
+To write Go you need to set a GOPATH that points to where all of your Go code will be. This is great where you work in the manner of; all my Go projects are here, all of my Ruby projects are here, etc. For this project I have my GOPATH setup to point into the moodtracker/appgo directory. In that directory Go creates a _src_ and a _pkg_ directory. It's really hard to tell what should be committed to Git.
+
+There isn't any version management for packages built in. There are a couple of projects that help with these issues:
+
+- https://github.com/mattn/gom
+- https://github.com/wfarr/goenv
+
+## Go prides itself on consistency, kinda
+
+Go uses tabs, prescribes that braces go on the same line and only makes functions public if they begin with a capital letter. It provides _gofmt_, a program to reformat your code in the Go style. It even checks that all imported packages are used. But when going through a lot of Go code, there are a bunch of inconsistencies:
+
+- Variable naming often uses underscores rather than camel case which seems to be the default.
+- There isn't much consistency over whether to use OO on types.
+- When coders choose to use return values or mutate data that is passed in.
+- When to use error return data or just panic directly. Using gorm, I am still not sure what happens when a database error occurs. I'm assuming it panics at a lower level.
+
+## Go is terse
+
+Lots of languages have found that working with lists (arrays) is super important. They have made it easy to cut, chop, add to and iterate over lists. Go takes a step backward here. E.g. it was easier to leave an item out of an array (when the array was being constructed) rather than composing a function to get all of the items and then add another function that removes the unwanted value.
+
+```go
+func AllTablesWithoutSchemaMigrations() (tables []string) {
+	rows, err := DB.Table("information_schema.tables").Select("table_name").Where("table_schema = ? AND table_type = ?", "public", "BASE TABLE").Rows()
+	if err != nil {
+		panic(err)
+	}
+	for rows.Next() {
+		var tableName string
+		rows.Scan(&tableName)
+		if tableName != "schema_migrations" {
+			tables = append(tables, tableName)
+		}
+	}
+	return tables
+}
+```
+
+In the Clojure implementation of this code there is a function to get all table names and a function that removed the _schema migrations_ table from the list. It was easier in Go to make sure that the function never returned the full list of tables. This function doesn't get any chance of re-use. People have said that Go will make you copy and paste some code, but it will be _okay_. The jury is still out on whether this an issue.
+
+## Opinion
+
+I really like:
+
+- The speed, running tests is so fast.
+- Being able to define the name of the return value and returning more than one variable from a function.
+
+I don't like:
+
+- Pointers giving the programmer choice of pass by reference or pass by value.
+- No stance on immutability.
+- Limited array handling.
+- Checking for errors on every call that returns them makes functions a lot longer.
+- Functions tend to be very long because code isn't as expressive as other languages.
+- Not quite object oriented, not quite functional.
+- Not prescriptive enough to make sure all code looks the same.
+
+## Still going to use it?
+
+_No_. My ideal programming environment is great at composing functions together to build programs, whether in a functional or object oriented style. Go feels like it could just be C with better string handling. I don't think it is great at making webapps which is what I tend to be doing all the time. I would consider it as a language to use when I need to optimize a component but that is about it.
