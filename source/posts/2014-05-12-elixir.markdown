@@ -3,15 +3,15 @@ title: Elixir
 layout: post
 ---
 
-Taking the time to read through the Elixir book (Pragprog) was an eye opening experience on my quest to find where (web) programming is moving too.
+Taking the time to read through the Elixir book (http://pragprog.com/book/elixir/programming-elixir) was an eye opening experience on my quest to find where (web) programming is moving too.
 
-Elixir is a functional programming language built on top of Erlang. It borrows a lot of syntax style from ruby.
+Elixir is a functional programming language built on top of Erlang. It borrows a lot of syntax style from Ruby.
 
-To me, Elixir is a mixture of Clojure and ruby but if you've programmed in Erlang before, to you its going to be a prettier Erlang with some additions from Clojure.
+To me, Elixir is a mixture of Clojure and Ruby but if you've programmed in Erlang before, to you it's going to be a prettier Erlang with some additions from Clojure.
 
 ## Aethestics
 
-If you come from ruby and rails you will have heard the jokes about rails porgrammers and they obsession with the aesthetic of code. This trend flows through the community and does push ruby to new levels of brevity/clarity in code. Looking into Elixir their are a lot of familiar things:
+If you come from Ruby and Rails you will have heard the jokes about Rails programmers and there obsession with the aesthetic of code. This trend flows through the community and does push Ruby to new levels of brevity/clarity in code. Looking into Elixir there are a lot of familiar things:
 
 ```elixir
 defmodule UserService do
@@ -26,7 +26,7 @@ end
 - _defmodule_ makes a module which is a grouping of functions, remember this isn't a class - there isn't any state here.
 - _def_ creates a function. This function takes 3 parameters, the last of which has a default value of "Australia".
 - _User.new_ - new is a special form that creates a new record.
-- Like ruby, the last set of parameters to a function can be a hash.
+- Like Ruby, the last set of parameters to a function can be a hash.
 
 ## Top Features
 
@@ -39,7 +39,7 @@ end
 
 Going well beyond the perl style string based pattern matching that is available in most languages, pattern matching in Elixir helps to make code more explicit.
 
-A simple example is when when dealing with nils in most languages you would do something like this:
+A simple example is when dealing with nils in most languages you would do something like this:
 
 ```elixir
 def process(user) do
@@ -94,7 +94,7 @@ def create(user) do
 end
 ```
 
-Elixir makes it really easy to react to known errors rather than relying on returning nil and continuesly checking for it all the way down the stack.
+Elixir makes it really easy to react to known errors rather than relying on returning nil and continuously checking for it all the way down the stack.
 
 ```elixir
 def build_and_create_user do
@@ -128,7 +128,7 @@ get "/users", params do
 end
 ```
 
-The macros that are used in a lot of the libraries and pretty mind blowing so taking the time to figure them out is quite beneficial.
+The macros that are used in a lot of the libraries are pretty mind blowing so taking the time to figure them out is quite beneficial.
 
 ### Immutable Data
 
@@ -179,4 +179,4 @@ Doing this in other languages requires running different processes or threads. E
 
 ## Wrapping Up
 
-Elixir is awesome. The right people are getting behind it to make it a big thing in the world of programming. Its fast, simple and removes complexity.
+Elixir is awesome. The right people are getting behind it to make it a big thing in the world of programming. It's fast, simple and removes complexity.
