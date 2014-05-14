@@ -54,12 +54,12 @@ end
 With pattern matching you can save a few lines:
 
 ```elixir
-def process(user) do
-  # run process
-end
-
 def process(nil) do
   nil
+end
+
+def process(user) do
+  # run process
 end
 ```
 
