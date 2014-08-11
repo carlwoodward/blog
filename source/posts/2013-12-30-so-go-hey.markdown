@@ -2,7 +2,7 @@
 title: So, Go (Golang), Hey
 layout: post
 ---
-
+<div class="notice">I've started using Go on new systems and while my thoughts still stand, I've found that the oo vs functional issues of Go don't get in the way of development as much as I had first thought. More coming soon.</div>
 The code that influenced this post is here: https://github.com/carlwoodward/moodtracker/tree/issue/1-sign-up/appgo/src/moodtracker
 
 ## Speed
