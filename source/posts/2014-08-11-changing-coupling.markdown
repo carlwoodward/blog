@@ -132,7 +132,7 @@ end
 
 I have removed the logic from the code to keep it brief.
 
-__fetch_instagram.rb illustrates a different approach to coupling__. Rather then the typical approach of having one way coupling code moves down through the stack, have the main loop (fetch_instagram.rb) be the orchestration layer and ensure that it has the logic to push and pull data between all of the other layers in the stack.
+__fetch_instagram.rb illustrates a different approach to coupling__. The typical approach is to have one way coupling where each layer passes data down the stack. In this approach the main loop (fetch_instagram.rb) is the orchestration layer and it has the logic to push and pull data between all of the other layers in the stack.
 
 __This becomes a major system design rule, that only orchestration layers can depend on other tiers. There aren't any other dependencies allowed.__
 
