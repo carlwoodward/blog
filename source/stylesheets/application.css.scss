@@ -7,12 +7,16 @@ html, body {
 body {
   -webkit-font-smoothing: antialiased;
   background: #FCFCFC;
-  font-family: "rooney-sans";
+  font-family: "adelle-sans-1","adelle-sans-2";
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "rooney-sans";
-  font-weight: 200;
+  font-family: "adelle-sans-1","adelle-sans-2";
+  font-weight: bold;
+
+  a {
+    color: #333;
+  }
 }
 
 a:hover {
@@ -44,7 +48,7 @@ header {
 
 .post .text {
   p, ul, ol {
-    font-family: "rooney-sans";
+    font-family: "jubilat-1","jubilat-2";
     font-size: 1.3em;
   }
 }
