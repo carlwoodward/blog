@@ -12,10 +12,6 @@ end
 
 activate :directory_indexes
 
-after_configuration do
-  sprockets.append_path Modernizr.path
-end
-
 activate :relative_assets
 set :relative_links, true
 

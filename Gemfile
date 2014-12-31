@@ -10,4 +10,3 @@ gem "redcarpet", "~> 3.0.0", git: "git@github.com:vmg/redcarpet.git"
 gem "builder"
 
 gem "bootstrap-sass"
-gem "modernizr"
