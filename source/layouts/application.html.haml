@@ -8,8 +8,9 @@
   = feed_tag :atom, "#{blog.options.prefix.to_s}/feed", title: "Atom Feed"
 
   :erb
-    <script src="//use.typekit.net/kre7xdp.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
+    <!--script src="//use.typekit.net/kre7xdp.js"></script-->
+    <!--script>try{Typekit.load();}catch(e){}</script-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,700' rel='stylesheet' type='text/css'>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -23,29 +24,16 @@
 
 %body
   .container
-    %header
-      %a(href="/")
-        %h1 Carl Woodward
-    %hr
-
     #content
       .row
-        .col-md-12
-          = yield
-
-    %hr.footer
-
-    %footer
-      .row
-        .col-md-2.avatar
-          = image_tag image_path("me.jpg")
-        .col-md-10
-          %h4.footer Carl Woodward
+        %address.col-md-3
+          .avatar= image_tag image_path("me.jpg")
+          %h4 Carl Woodward
           %p
             Software guy based in Sydney, Australia.<br/>Questions, comments or project enquires: <a href="mailto:carl@88cartell.com">carl@88cartell.com</a>.
           %p.social
-            %a(href="https://twitter.com/cjwoodward")
-              %i.fa.fa-twitter.fa-2x
-
-            %a.space{href:"https://github.com/carlwoodward"}
-              %i.fa.fa-github-alt.fa-2x
+            %a(href="https://twitter.com/cjwoodward") Twitter
+            |
+            %a.space{href:"https://github.com/carlwoodward"} Github
+        %article.col-md-9
+          = yield
