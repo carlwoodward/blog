@@ -13,11 +13,11 @@ So what does a "pretty good slice" have in it?
 - An onboarding so that users can quickly understand what the feature is about.
 - A blank slate that gives the user a sense of what will be there once content is added.
 - Any graphs, info, etc that make the feature complete.
-- Copy writing that has been reviewed but might not be perfect.
+- Copywriting that has been reviewed but might not be perfect.
 
 What shouldn't it have?
 
-- Animation
+- Animation (unless they are at the core of what you are trying to make)
 - Links to other features
 
 The default mindset for MVP is "the worst version of all features". I know this is incorrect but it's what happens. Even with the correct version an MVP includes a larger set of features, e.g.
