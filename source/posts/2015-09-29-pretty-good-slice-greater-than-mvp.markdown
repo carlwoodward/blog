@@ -30,4 +30,4 @@ The default mindset for MVP is "the worst version of all features". I know this 
 
 But there isn't any proof that anyone would buy the core single feature. And because all of the features are implemented without any love, potential customers take a lot more work to get over the line.
 
-When showing my first customer and they were able to use the feature, see the value and from there I had a sale. A lot of "things that don't scale" were happening in the background but I have proof that a customer will buy this key feature and they didn't get scared off buy a sad experience.
+When showing my first customer and they were able to use the feature, see the value and from there I had a sale. A lot of "things that don't scale" were happening in the background but I have proof that a customer will buy this key feature and they didn't get scared off by a sad experience.
