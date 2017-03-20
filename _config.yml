@@ -16,7 +16,7 @@
 title: Carl Woodward
 email: carl@88cartell.com
 description: > # this means to ignore newlines until "baseurl:"
-  Product focused developer (contractor). http://carlwoodward.com. http://88cartell.com. Revisit.io
+  Product focused developer (contractor). http://carlwoodward.com. http://88cartell.com. http://revisit.io
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: cjwoodward
