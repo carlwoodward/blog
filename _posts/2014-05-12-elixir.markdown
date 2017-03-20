@@ -1,0 +1,182 @@
+---
+title: Elixir
+layout: post
+---
+
+Taking the time to read through the Elixir book (http://pragprog.com/book/elixir/programming-elixir) was an eye opening experience on my quest to find where (web) programming is moving too.
+
+Elixir is a functional programming language built on top of Erlang. It borrows a lot of syntax style from Ruby.
+
+To me, Elixir is a mixture of Clojure and Ruby but if you've programmed in Erlang before, to you it's going to be a prettier Erlang with some additions from Clojure.
+
+## Aethestics
+
+If you come from Ruby and Rails you will have heard the jokes about Rails programmers and there obsession with the aesthetic of code. This trend flows through the community and does push Ruby to new levels of brevity/clarity in code. Looking into Elixir there are a lot of familiar things:
+
+```elixir
+defmodule UserService do
+  def create(email, username, country \\ "Australia") do
+    Repo.create User.new(email: email, username: username, country: country)
+  end
+end
+```
+
+#### What's going on here
+
+- _defmodule_ makes a module which is a grouping of functions, remember this isn't a class - there isn't any state here.
+- _def_ creates a function. This function takes 3 parameters, the last of which has a default value of "Australia".
+- _User.new_ - new is a special form that creates a new record.
+- Like Ruby, the last set of parameters to a function can be a hash.
+
+## Top Features
+
+- Pattern matching.
+- First class macros.
+- Immutable data.
+- Actor model based processes.
+
+### Pattern Matching
+
+Going well beyond the perl style string based pattern matching that is available in most languages, pattern matching in Elixir helps to make code more explicit.
+
+A simple example is when dealing with nils in most languages you would do something like this:
+
+```elixir
+def process(user) do
+  if user != nil do
+    # run process
+  else
+    nil
+  end
+end
+```
+
+With pattern matching you can save a few lines:
+
+```elixir
+def process(nil) do
+  nil
+end
+
+def process(user) do
+  # run process
+end
+```
+
+A more interesting example is of a http request router. It becomes trivial to make a router with pattern matching and destructuring all in one example:
+
+```elixir
+defmodule Router do
+  def route(type, path, params, session) do
+    render :404
+  end
+
+  def route(:get, ["/users"], params, session) do
+    render :list_users
+  end
+
+  def route(:get, ["/users", id], params, session) do
+    render :show_user
+  end
+end
+```
+
+In Elixir a lot of functions return tuples in a similar way to Golang.
+
+```elixir
+def create(user) do
+  if valid? user do
+    user = Repo.create user
+    { :ok, user }
+  else
+    { :error, :user_invalid }
+  end
+end
+```
+
+Elixir makes it really easy to react to known errors rather than relying on returning nil and continuously checking for it all the way down the stack.
+
+```elixir
+def build_and_create_user do
+  user = User.new email: "billybob@hotmail.com"
+  case create(user) do
+    { :ok, user } -> json(user)
+    { :error, error } -> json_error(error)
+  end
+end
+```
+
+### Moving on to Macros
+
+Hygenic macros are very important in Elixir. They can take meta programming to a new level of clarity.
+
+```elixir
+defmacro get(path, params, do: contents) do
+  quote do
+    def route(:get, unquote(path), unquote(params)) do
+      unquote contents
+    end
+  end
+end
+```
+
+Which defines a macro called _get_:
+
+```elixir
+get "/users", params do
+  render :list_users
+end
+```
+
+The macros that are used in a lot of the libraries are pretty mind blowing so taking the time to figure them out is quite beneficial.
+
+### Immutable Data
+
+Elixir's data is immutable so things like:
+
+```elixir
+iex(1)> defrecord User, email: ""
+{:module, User,
+ <<70, 79, 82, 49, 0, 0, 11, 244, 66, 69, 65, 77, 65, 116, 111, 109, 0, 0, 0, 225, 0, 0, 0, 26, 11, 69, 108, 105, 120, 105, 114, 46, 85, 115, 101, 114, 8, 95, 95, 105, 110, 102, 111, 95, 95, 4, 100, 111, 99, 115, ...>>,
+ nil}
+iex(2)> user = User.new email: "billybob@hotmail.com"
+User[email: "billybob@hotmail.com"]
+iex(3)> user.email("changed")
+User[email: "changed"]
+iex(4)> user.email
+"billybob@hotmail.com"
+iex(5)> user = user.email("changed")
+User[email: "changed"]
+iex(6)> user.email
+"changed"
+```
+
+There isn't much to say about how immutable data works in Elixir. Each function returns a new version of data rather than mutating said data. It does make it easier to write concurrent code.
+
+### Actor Model
+
+The concurrency model that Elixir uses makes it really easy to run code in the background. There are other modules like _GenServer_ and _GenFSM_ that make it easy to have stateful servers as well.
+
+```elixir
+defmodule EmailServer do
+  def start(email) do
+    receive do
+      { :welcome, _pid } -> send_welcome_to email
+    end
+  end
+
+  def send_welcome_to(email) do
+    IO.puts "SENDING EMAIL TO: #{email}."
+    # Deliver email in background.
+  end
+end
+
+email_server = spawn_link EmailServer, :start, ["billybob@hotmail.com"]
+send email_server, { :welcome, self }
+```
+
+Doing this in other languages requires running different processes or threads. Elixir simplifies the problem.
+
+## Wrapping Up
+
+Elixir is awesome. The right people are getting behind it to make it a big thing in the world of programming. It's fast, simple and removes complexity.
