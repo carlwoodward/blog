@@ -5,7 +5,7 @@ layout: post
 
 With side projects like [Revisit](http://revisit.io), if you are like me then you tend to update them once or twice a year.
 
-Every attempt leads to the painful realisation that the version of every dependency has moved on. First thought is to try to upgrade the project. 4 hours later when the project is very broken and no end is insight you realise that this process isn't working. Most likely, it's time to give up, but it's actually quite easy to Rsync the whole server into a Vagrant machine and have a working version with all dependencies.
+Every attempt leads to the painful realisation that the version of every dependency has moved on. First thought is to try to upgrade the project. 4 hours later when the project is very broken and no end is in sight you realise that this process isn't working. Most likely, it's time to give up, but it's actually quite easy to Rsync the whole server into a Vagrant machine and have a working version with all dependencies.
 
 First create vagrant machine with a linux distro that matches the server:
 
