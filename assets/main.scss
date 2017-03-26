@@ -1,0 +1,45 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+body {
+  font-family: 'Georgia';
+}
+
+.trigger {
+  display: none;
+}
+
+.site-header {
+  background: #e7f2ff;
+  font-family: 'Futura';
+  border: none;
+}
+
+.post-meta {
+  font-family: 'Futura';
+  font-weight: normal;
+}
+
+.page-heading {
+  display: none;
+}
+
+.site-footer {
+  font-family: 'Futura';
+}
+
+.post-title {
+  line-height: 1.25;
+}
+
+a.post-link {
+  color: inherit;
+}
+
+.pagination {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e7f2ff;
+}
