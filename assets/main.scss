@@ -4,7 +4,7 @@
 @import "{{ site.theme }}";
 
 body {
-  font-family: 'Georgia';
+  font-family: -apple-system, system-ui, Verdana, sans-serif;
 }
 
 .trigger {
@@ -12,13 +12,17 @@ body {
 }
 
 .site-header {
-  background: #e7f2ff;
-  font-family: 'Futura';
+  font-weight: bold;
   border: none;
+  border-bottom: 1px solid #e7f2ff;
+}
+
+.site-title {
+  font-weight: bold;
 }
 
 .post-meta {
-  font-family: 'Futura';
+  font-weight: bold;
   font-weight: normal;
 }
 
@@ -27,7 +31,6 @@ body {
 }
 
 .site-footer {
-  font-family: 'Futura';
 }
 
 .post-title {
