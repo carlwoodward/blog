@@ -3,15 +3,19 @@ title: The word "agile" isn't helping anyone
 layout: post
 ---
 
-Our industry (the technology / software industry) has an important problem, we use one word to describe how we do work, and that word ("agile")has a myriad of interpretations.
+Our industry (the technology / software industry) has an important problem, we use one word to describe how we do work ("agile"), and that word ("agile") has a myriad of interpretations. Other industries are looking to co-opt "agile" as a way of working, increasing scale of confusion. Instead, teams should use a tangible set of definitions, helping bring teams together to create value using a shared approach.
 
-And other industries are looking to co-opt "agile" as a way of working, increasing the scale of confusion.
+## Areas of contention
 
-From here on out, the word "agile" won't be used. Instead tangible definitions will be used to keep intentions clear.
+At a high level, a lot of discussion in this area can be broken down into decision making, reporting and visibility and ways of structuring work. Decision making in a world of complex change has lead to most teams adopting an approach of taking decisions as they come, this comes with an accepted risk of potentially detremental decisions being made due to acceptance of teams not ever having all the information until it is much too late to make decisions.
+
+Reporting and visibility has shifted to embedding cross functional teams including leadership, helping reporting move to a secondary concern due to connected nature of teams. Challenges abound where large teams need cross cutting visibility.
+
+How is work broken up to build value in the given environment is vague and this post seeks to address that issue.
 
 ## Ways of structuring work
 
-Two types of work relavant here:
+Two types of work _aren't_ relavant here:
 
 1. Work that is largely operational, e.g. a bar; where the bartender's role is largely known each day and goal is to serve drinks to people.
 2. Work where the challenge is creating some kind of new value. E.g. construction.
@@ -27,7 +31,7 @@ All of these different approaches have their benefits and drawbacks.
 
 ## Plan, Deliver, Run
 
-![Plan, Deliver, Run](/assets/pdr.svg)
+![Plan, Deliver, Run](http://test.carlwoodward.com/pdr.svg)
 
 ### Benefits
 
@@ -35,7 +39,7 @@ All of these different approaches have their benefits and drawbacks.
 - Easy to understand - most people think like this
 - Upfront mapping of dependencies and dates
 
-### What scenarios match
+### A good option when
 
 - Organisation knows what it is trying to achieve
 - The work requires a lot of people
@@ -43,28 +47,34 @@ All of these different approaches have their benefits and drawbacks.
 
 ## Cycles
 
-![Cycles](/assets/cycle.svg)
+![Cycles](http://test.carlwoodward.com/cycle.svg)
 
 ### Benefits
 
 - Adapts to change in vision
 - Faster feedback loop
 
-### What scenarios match
+### A good option when
 
 - Organisation wants to test and pivot their approach but stick to vision and is confident in problem space
 - Medium team sizes
 
 ## Iteration
 
-![Iteration](/assets/iteration.svg)
+![Iteration](http://test.carlwoodward.com/iteration.svg)
 
 ### Benefits
 
 - Find solution when problem isn't understood
 - Open to new ways of creating value
 
-### What scenarios match
+### A good option when
 
-- Failure is a known option
-- Small investment
+- Failure is a known option and pattern
+- Small investment to solve known pain point
+
+## So what
+
+1. Stop talking about Agile, no one else will share your view of what it means
+2. Pick a way of structuring work based on environment, problem domain, desired outcome and risk appetite
+3. Try using this model to communicate your way of working
