@@ -4,7 +4,29 @@
 @import "{{ site.theme }}";
 
 body {
-  font-family: 'Georgia';
+  font-family: 'Source Code Pro', monospace;
+}
+
+pre, code {
+  font-family: 'Source Code Pro', monospace;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+blockquote {
+  color: black;
+  font-size: 1rem;
+  font-style: normal;
+}
+
+a, a:visited {
+  color: black;
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  font-size: 1rem;
 }
 
 .trigger {
@@ -12,14 +34,14 @@ body {
 }
 
 .site-header {
-  background: #e7f2ff;
-  font-family: 'Futura';
   border: none;
 }
 
+.site-title {
+  font-size: 1rem;
+}
+
 .post-meta {
-  font-family: 'Futura';
-  font-weight: normal;
 }
 
 .page-heading {
@@ -27,11 +49,11 @@ body {
 }
 
 .site-footer {
-  font-family: 'Futura';
 }
 
 .post-title {
   line-height: 1.25;
+  font-size: 1rem;
 }
 
 a.post-link {
@@ -41,5 +63,9 @@ a.post-link {
 .pagination {
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #e7f2ff;
+  border-bottom: 1px solid #ccc;
+}
+
+.highlighter-rouge .highlight {
+  background: transparent;
 }
