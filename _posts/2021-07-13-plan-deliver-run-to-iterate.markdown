@@ -20,3 +20,7 @@ Deliver something quickly, test it with customers (run), plan what's next:
 Iteration
 
 ![Iteration](/assets/iterate.png)
+
+<br/>
+<br/>
+Iteration is the best way to stay open to what customers really need.
