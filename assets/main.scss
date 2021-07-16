@@ -8,6 +8,33 @@ body {
   background-color: white !important;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333 !important;
+    color: white !important;
+  }
+
+  blockquote {
+    color: white !important;
+  }
+
+  a, a:visited {
+    color: white !important;
+  }
+
+  .post-meta {
+    color: #efefef;
+  }
+
+  img {
+    filter: invert(1);
+  }
+}
+
+svg {
+  font-family: 'Source Code Pro', monospace;
+}
+
 pre, code {
   font-family: 'Source Code Pro', monospace;
   background-color: transparent;
